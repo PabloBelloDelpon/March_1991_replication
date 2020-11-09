@@ -1,7 +1,7 @@
 # March_1991_replication
 
 Replication study of the paper "Exploration and exploitation in organizational learning" (March, 1991). 
-The code for the simulation of figures 1 thru 5 was developed by [Maciej Workiewicz](https://github.com/Mac13kW/March_1991_Exploration_and_Exploitation) based on the original paper. The simulation of figure 6 is by Pablo Bello.
+The code for the simulation of figures 1 thru 5 was developed by [Maciej Workiewicz](https://github.com/Mac13kW/March_1991_Exploration_and_Exploitation) based on the original paper. The code for the simulation of figure 6 is by Pablo Bello.
 
 ## Files :
 * Each csv file contains the results of one simulation experiment.
