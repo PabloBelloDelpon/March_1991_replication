@@ -1,17 +1,26 @@
 
 ##### FIGURE 6 #####
 
-var <- seq(from = 0,to = 2,by = 0.05)
+var <- seq(from = 0,to = 2,by = 0.50)
+x <- 0
 N <- 10
 reps <- 10000
 
+x_values <- c() # Vector to save the results of x
+line <- c()
 
 
-positives <-
+#positives <-
+x_values <- 
   sapply (var, function(v){
- 
+  i <- 1 # Counter
+
+  repeat{
+  
+  print(paste("Attempt with x =", x))
+  
   iterations <- sapply(1:reps, function(i){
-    f_org <- rnorm(n = 1,mean = 0,sd = v) # Performance of the focus organization
+    f_org <- rnorm(n = 1,mean = x,sd = v) # Performance of the focus organization
     o_org <- rnorm(n = N,mean = 0,sd = 1) # Vector with the performance of the other organizations
     
     rank_1 <- sum(f_org > o_org) == N # Is the performance of the focus org better than that of all the others?
@@ -21,9 +30,22 @@ positives <-
   p <- sum(iterations)/reps # Probability of the focal org outperforming all the others
   yardstick <- 1/(1 + N) # Theoretical probability of focal org outperforming all if the distributions were the same
   
-  result <- round(p,digits = 2) == round(yardstick,digits = 2) # Does this distribution give the same performance as if N(0,1)?
+  p_r <- round(p,digits = 2) # Rounded p
+  y_r <- round(yardstick,digits = 2) # Rounded y
   
-  return(result)
+  if (p_r == y_r) { 
+    print (paste("Success!", x)) 
+    return(x)
+    x <- 0 # Set it up to 0 again
+    i <- i + 1 # Counter
+    break}
+
+  else if (p_r > y_r) {x <- x - 0.05} 
+  else if (p_r < y_r) {x <- x + 0.05}
+ }
+
+
+  
 })
 
 
