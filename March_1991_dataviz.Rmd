@@ -81,3 +81,25 @@ fig_2 %>%
 
 ```
 
+```{r}
+###### FIGURE 6 #####
+
+fig_6 <- vroom("March_1991_fig6.csv")
+
+fig_6 %>% 
+  mutate(N = factor(N)) %>% 
+ggplot(aes(v_value,x_value,group = N, color = N)) +
+  geom_line() +
+  geom_vline(aes(xintercept = 1)) +
+  geom_hline(aes(yintercept = 0)) +
+  scale_color_manual (values = color_pal_2) +
+  labs (color = "N",
+        x = "Variance (v') of the performance distribution",
+        y = "Mean (x') of the performance distribution") +
+  theme_pubr (legend = "right",border = TRUE,base_family = "Times")
+  
+
+```
+
+
+
