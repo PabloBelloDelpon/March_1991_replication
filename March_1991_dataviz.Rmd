@@ -92,7 +92,7 @@ ggplot(aes(v_value,x_value,group = N, color = N)) +
   geom_line() +
   geom_vline(aes(xintercept = 1)) +
   geom_hline(aes(yintercept = 0)) +
-  scale_color_manual (values = color_pal_2) +
+  scale_color_manual (values = color_pal_3) +
   labs (color = "N",
         x = "Variance (v') of the performance distribution",
         y = "Mean (x') of the performance distribution") +
